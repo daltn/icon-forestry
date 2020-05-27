@@ -8,7 +8,7 @@ display_on_home_page: true
 display_on_site: true
 thumbnail: https://s3.amazonaws.com/forestry.iconinteractive.com/lol-thumb.jpg
 title: eSports Experiential
-client: Rocket Mortage
+client: Rocket Mortgage
 brief_label: Challenge
 brief: Come up with a stunning and attractive experiential concept that authentically
   connects Rocket Mortgage with the world of eSports.  ICON delivered a “never seen
