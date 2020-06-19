@@ -1,9 +1,20 @@
 <template>
   <Layout>
-    <div class="container">
-      <h1 v-html="$page.post.title" class="title" />
-      <EventContent class="event-content" :content="$page.post.content" />
-    </div>
+    <section>
+      <div :style="style">
+        <div class="news-title-wrap">
+          <h1 v-html="$page.post.title" class="news-title margin" />
+        </div>
+        <EventContent
+          :style="style"
+          class="event-content"
+          :content="$page.post.content"
+        />
+      </div>
+      <section class="contact-wrap margin">
+        <ContactForm />
+      </section>
+    </section>
   </Layout>
 </template>
 
@@ -18,18 +29,29 @@ query NewsPost ($path: String!) {
 </page-query>
 
 <script>
-import EventContent from "@/components/EventContent";
+import EventContent from "@/components/EventContent"
+import ContactForm from "@/components/ContactForm"
 
 export default {
   components: {
-    EventContent
+    EventContent,
+    ContactForm,
+  },
+  computed: {
+    style() {
+      return {
+        backgroundColor: `#ebebeb`,
+        color: "#000",
+        paddingBottom: "3rem",
+      }
+    },
   },
   metaInfo() {
     return {
-      title: this.$page.post.title
-    };
-  }
-};
+      title: this.$page.post.title,
+    }
+  },
+}
 </script>
 
 <style scoped>
@@ -37,37 +59,32 @@ a {
   text-decoration: underline;
   color: var(--color-highlight);
 }
-.event-content {
-  width: 75%;
+.news-title {
+  text-align: left;
+  font-size: 3.5rem;
+  max-width: 800px;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
 }
-.event-header {
-  padding: 2rem 0 4rem 0;
+.nav a {
+  border: 1px solid cyan;
 }
-.title {
-  margin: 0 0 4rem 0;
-  padding: 0;
-  line-height: 5.25rem;
+.margin {
+  margin-left: 6rem;
+  margin-right: 6rem;
 }
-.event-meta {
+.news-title-wrap {
   display: flex;
-  flex-wrap: wrap;
-  font-size: 1rem;
-}
-.event-meta > div {
-  margin-right: 4rem;
-}
-.event-meta > div:last-of-type {
-  margin: 0;
-}
-.label {
-  color: var(--color-highlight);
+  justify-content: center;
 }
 @media (max-width: 800px) {
-  .event-content {
-    width: 95%;
+  .news-title {
+    line-height: 2.5rem;
+    font-size: 2.25rem;
   }
-  .title {
-    line-height: 3rem;
+  .margin {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }
 </style>
