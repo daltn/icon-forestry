@@ -280,6 +280,9 @@ h3 {
   .grid-two {
     grid-template-columns: repeat(2, 1fr);
   }
+  .title {
+    margin-left: 5%;
+  }
 }
 @media (max-width: 600px) {
   .grid-two {
